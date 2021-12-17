@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # no root route just in the namespace and resources
+  # api routes, leads us to the controller
+  namespace :api do
+    resources :workers
+  end
+
 end
