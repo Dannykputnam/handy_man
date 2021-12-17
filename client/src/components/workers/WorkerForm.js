@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react';
 
-const WorkerForm = ({ id, addWorker, setEdit }) => {
+const WorkerForm = ({ id, addWorker, setEdit, updateWorker, name, employee, title}) => {
   const [worker, setWorker] = useState({ name: '', employee: 0, title: '' })
+
+  useEffect( () => {
+    if (id) {
+      setWorker({ name, employee, title})
+    }
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-    addWorker(worker)
+    updateWorker(id ,worker)
     setEdit(false)
   } else {
     addWorker(worker)

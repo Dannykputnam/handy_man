@@ -2,10 +2,12 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import WorkerForm from './WorkerForm'
 // import Posts from '../posts/Posts'
 
-const WorkerShow = ({}) => {
+const WorkerShow = ({updateWorker, deleteWorker,id}) => {
   const [worker, setWorker] = useState({name: '', employee: 0, title: ''})
+  const [editing, setEdit] = useState(false)
   let params = useParams()
 
   useEffect( () => {
@@ -25,9 +27,16 @@ const WorkerShow = ({}) => {
       <p>{worker.employee}</p>
       <h4>What can {worker.name} do?</h4>
       <p>{worker.title}</p>
-      {/* <Posts blogId={params.blogId} /> */}
+      { editing ?
+      <>
       <Link to={'/workers'}>Back</Link>
       
+      <button onClick={() => setEdit(false)}>Cancel</button>
+      </>
+      :
+      <button onClick={() => setEdit(true)}>Edit</button>
+    }
+    <button onClick={() => deleteWorker(id)}>Delete</button>   
     
     </>
   )
