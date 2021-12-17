@@ -1,5 +1,3 @@
 class Worker < ApplicationRecord
-  namespace :api do
-    resources :workers do
-  end
+  validates :name, :title, presence: true
 end

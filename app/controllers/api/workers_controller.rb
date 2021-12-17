@@ -1,5 +1,6 @@
 class Api::WorkersController < ApplicationController
   before_action :set_worker, only: [:show, :update, :destroy]
+  
   def index
     render json: Worker.all
   end
@@ -22,16 +23,17 @@ class Api::WorkersController < ApplicationController
       render json: @worker
     else 
       render json: { errors: @worker.errors }, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @worker.destory
+    @worker.destroy
     render json: { message: 'Worker Deleted'}
   end
 
   private
   def worker_params
-    params.require(:worker_name).permit(:name, :employee, :title)
+    params.require(:worker).permit(:name, :employee, :title)
   end
   
   def set_worker
