@@ -31,20 +31,20 @@ const Workers = ({}) => {
       .catch( err => console.log(err))
   }
 
-  // const updateWorker = (id, worker) => {
-  //   axios.put(`/api/workers/${id}`, { worker })
-  //     .then( res => {
-  //       const newUpdatedWorkers = worker.map( w => {
-  //         if (w.id === id) {
-  //           return res.data
-  //         }
-  //         return w
-  //       })
-  //       setWorkers(newUpdatedWorkers)
-  //       // edit works but needs to refresh
-  //     })
-  //     .catch( err => console.log(err))
-  // }
+  const updateWorker = (id, worker) => {
+    axios.put(`/api/workers/${id}`, { worker })
+      .then( res => {
+        const newUpdatedWorkers = workers.map( w => {
+          if (w.id === id) {
+            return res.data
+          }
+          return w
+        })
+        setWorkers(newUpdatedWorkers)
+        // edit works but needs to refresh
+      })
+      .catch( err => console.log(err))
+  }
 
   return (
     <>
