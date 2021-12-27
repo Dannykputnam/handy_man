@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-// import Posts from '../posts/Posts'
+import Services from '../services/Services'
 
 const WorkerShow = ({}) => {
   const [worker, setWorker] = useState({name: '', employee: 0, title: ''})
@@ -25,7 +25,7 @@ const WorkerShow = ({}) => {
       <p>{worker.employee}</p>
       <h4>What can {worker.name} do?</h4>
       <p>{worker.title}</p>
-      {/* <Posts blogId={params.blogId} /> */}
+      <Services workerId={params.workerId} />
       <Link to={'/workers'}>Back</Link>
 
 
