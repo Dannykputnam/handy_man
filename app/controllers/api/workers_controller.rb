@@ -18,11 +18,11 @@ class Api::WorkersController < ApplicationController
     end
   end
 
-  def udpate
+  def update
     if @worker.update(worker_params)
       render json: @worker
     else 
-      render json: { errors: @worker.errors }, status: :unprocessable_entity
+      render json: { errors: @worker.errors}, status: :unprocessable_entity
     end
   end
 

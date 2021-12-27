@@ -22,15 +22,6 @@ const Workers = ({}) => {
       .catch( err => console.log(err))
   }
 
-  const deleteWorker = (id) => {
-    axios.delete(`/api/workers/${id}`)
-      .then( res => {
-        alert(res.data.message)
-        setWorkers(workers.filter( w => w.id !== id ))
-      })
-      .catch( err => console.log(err))
-  }
-
   const updateWorker = (id, worker) => {
     axios.put(`/api/workers/${id}`, { worker })
       .then( res => {
@@ -45,6 +36,17 @@ const Workers = ({}) => {
       })
       .catch( err => console.log(err))
   }
+
+  const deleteWorker = (id) => {
+    axios.delete(`/api/workers/${id}`)
+      .then( res => {
+        alert(res.data.message)
+        setWorkers(workers.filter( w => w.id !== id ))
+      })
+      .catch( err => console.log(err))
+  }
+
+  
 
   return (
     <>

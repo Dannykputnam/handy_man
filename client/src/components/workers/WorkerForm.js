@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const WorkerForm = ({ id, name, employee, title, addWorker, setEdit }) => {
+const WorkerForm = ({ id, name, employee, title, addWorker, setEdit, updateWorker }) => {
   const [worker, setWorker] = useState({ name: '', employee: 0, title: '' })
 
   useEffect( () => {
@@ -12,7 +12,7 @@ const WorkerForm = ({ id, name, employee, title, addWorker, setEdit }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-    addWorker(worker)
+    updateWorker(id, worker)
     setEdit(false)
   } else {
     addWorker(worker)
