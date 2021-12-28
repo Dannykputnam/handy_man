@@ -5,6 +5,7 @@ import Home from './components/shared/Home';
 import Workers from './components/workers/Workers';
 import WorkerShow from './components/workers/WorkerShow';
 import ServiceShow from './components/services/ServiceShow';
+import CommentShow from './components/comments/CommentShow';
 
 const App = () => (
   <>  
@@ -16,6 +17,7 @@ const App = () => (
     <Route exact path='/workers' element={<Workers />} />
     <Route exact path='/workers/:workerId' element={<WorkerShow />} />
     <Route exact path='/workers/:workerId/services/:serviceId' element={<ServiceShow />} />
+    <Route exact path='/workers/:workerId/services/:serviceId/comments/:commentId' element={<CommentShow />} />
   </Routes>
     {/* <Route exact path='/' element={<Home />} /> */}
   </>

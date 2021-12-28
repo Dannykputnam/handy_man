@@ -5,6 +5,14 @@ Rails.application.routes.draw do
     resources :workers do
       resources :services
     end
+
+    resources :services do
+      resources :comments
+    end
   end
 
-end
+end 
+
+
+
+# , except: [:index, :show, :create, :update, :destroy] 

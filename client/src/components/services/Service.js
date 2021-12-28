@@ -29,7 +29,7 @@ const Service = ({ id, name, description, mins, deleteService, updateService }) 
         <button onClick={() => setEdit(true)}>Edit</button>
       }
       <button onClick={() => deleteService(id)}>Delete</button>
-      {/* <Comments postId={id} /> */}
+      {/* <Comments serviceId={id} /> */}
     </>
   )
 }

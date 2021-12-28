@@ -15,7 +15,7 @@ const WorkerList = ({ workers, deleteWorker, updateWorker }) => {
                 updateWorker={updateWorker} 
                 deleteWorker={deleteWorker} 
               />
-              <Link to={`/Workers/${w.id}`}>Show</Link>
+              <Link to={`/workers/${w.id}`}>Show</Link>
               <br />
             </>
           )}

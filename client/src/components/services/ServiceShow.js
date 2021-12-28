@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-// import Posts from '../posts/Posts';
+import Comments from '../comments/Comments';
 
 const ServiceShow = ({workerId, id}) => {
   const [service, setService] = useState({name: '', description: '', mins: 0})
@@ -21,8 +21,8 @@ const ServiceShow = ({workerId, id}) => {
       <h1>Name of the Service: {service.name}</h1>
       <p>Service Description: {service.description}</p>
       <p>Minutes to complete service: {service.mins}</p>
-      {/* <Posts blogId={params.blogId} /> */}
       <Link to={(`/workers/${params.workerId}`)}>Back</Link>
+      <Comments serviceId={params.serviceId} />
     </>
   )
 } 
