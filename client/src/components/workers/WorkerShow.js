@@ -21,12 +21,13 @@ const WorkerShow = ({}) => {
     <>
       <h1>Workers Name:</h1>
       <h1>{worker.name}</h1>
-      <h2>Workers Name:</h2>
+      <h2>Workers Employee Number:</h2>
       <p>{worker.employee}</p>
       <h4>What can {worker.name} do?</h4>
       <p>{worker.title}</p>
-      <Services workerId={params.workerId} />
       <Link to={'/workers'}>Back</Link>
+      <Services workerId={params.workerId} />
+      
 
 
     </>

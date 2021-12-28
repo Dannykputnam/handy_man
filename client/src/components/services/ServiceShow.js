@@ -1,37 +1,30 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ServiceForm from './ServiceForm';
-// import Comments from '../comments/Comments';
+import {Link} from 'react-router-dom';
+// import Posts from '../posts/Posts';
 
+const ServiceShow = ({workerId, id}) => {
+  const [service, setService] = useState({name: '', description: '', mins: 0})
+  let params = useParams()
 
-const ServiceShow = ({ id, name, description, mins, deleteService, updateService }) => {
-  const [editing, setEdit] = useState(false)
+  useEffect( () => {
+    axios.get(`/api/workers/${params.workerId}/services/${params.serviceId}`)
+      .then( res => {
+        setService(res.data)
+      }) 
+      .catch( err => console.log(err))
+  }, [])
 
-  return(
+  return (
     <>
-      <h2>{name}</h2>
-      <h4>Minutes to to complete: {mins}</h4>
-      <p>{description}</p>
-      { editing ?
-        <>
-          <ServiceForm
-            id={id}
-            name={name}
-            mins={mins}
-            description={description}
-            updateService={updateService}
-            setEdit={setEdit}
-          />
-          <button onClick={() => setEdit(false)}>Cancel</button>
-        </>
-        :
-        <button onClick={() => setEdit(true)}>Edit</button>
-      }
-      <button onClick={() => deleteService(id)}>Delete</button>
-      {/* <Comments postId={id} /> */}
+      <h1>Name of the Service: {service.name}</h1>
+      <p>Service Description: {service.description}</p>
+      <p>Minutes to complete service: {service.mins}</p>
+      {/* <Posts blogId={params.blogId} /> */}
+      <Link to={(`/workers/${params.workerId}`)}>Back</Link>
     </>
   )
-}
+} 
 
 export default ServiceShow;

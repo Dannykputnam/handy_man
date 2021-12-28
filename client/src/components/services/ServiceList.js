@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ServiceShow from './ServiceShow';
+import Service from './Service';
 
 const ServiceList = ({ services, workerId, deleteService, updateService, id}) => {
   return (
@@ -7,13 +7,13 @@ const ServiceList = ({ services, workerId, deleteService, updateService, id}) =>
       { services.map( s => 
         <>
         
-          <ServiceShow 
+          <Service
             {...s} 
             workerId={workerId} 
             deleteService={deleteService} 
             updateService={updateService}
           />
-           <Link to={`api/workers/${workerId}/services/${s.id}`}>Show</Link>
+           <Link to={`services/${s.id}`}>Show</Link>
         </> 
         
       )}

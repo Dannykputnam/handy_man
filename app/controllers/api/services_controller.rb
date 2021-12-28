@@ -20,7 +20,7 @@ class Api::ServicesController < ApplicationController
   end
 
   def update
-    if @service.update(post_params)
+    if @service.update(service_params)
       render json: @service
     else
       render json: { errors: @service.errors }, status: :unprocessable_entity
